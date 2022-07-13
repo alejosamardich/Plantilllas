@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+	<%- include("partials/head", {tituloWeb: "Producto"}); %>
+	<body>
+		<main class="container-lg p-3">
+			<section class="row justify-content-around">
+        <% if(response) { %>
+          <h1 class="col-12 text-center">Lista de productos</h1>
+          <%- include("partials/product", {
+            nombre: response.nombre,
+            imagen: response.imagen,
+            precio: response.precio
+          }) %>
+				<% } else { %>
+          <h4 class="text-center">El producto con el id especificado no ha sido encontrado</h4>
+        <% } %>
+			</section>
+		</main>
+	</body>
+</html>

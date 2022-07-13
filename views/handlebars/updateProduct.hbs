@@ -1,0 +1,22 @@
+<main class="container p-3">
+  <section class="row justify-content-around">
+    {{#if response}}
+      <h3 class="col-12 text-center mb-4">Producto agregado</h3>
+      <article class="col-8 col-md-6 col-lg-3 d-flex flex-column p-2 text-center card border-success">
+        <img class="img-fluid rounded" src={{response.new.imagen}} alt={{response.new.nombre}} />
+        <h3 class="text-secondary">{{response.new.nombre}}</h3>
+        <b class="my-1">$ {{response.new.precio}}</b>
+      </article>
+
+      <h3 class="col-12 text-center my-4">Producto reemplazado</h3>
+      <article class="col-8 col-md-6 col-lg-3 d-flex flex-column p-2 text-center card border-success">
+        <img class="img-fluid rounded" src={{response.previous.imagen}} alt={{response.previous.nombre}} />
+        <h3 class="text-secondary">{{response.previous.nombre}}</h3>
+        <b class="my-1">$ {{response.previous.precio}}</b>
+      </article>
+
+      {{else}}
+      <h4 class="text-center">Alguno de los campos ha quedado sin rellenar</h4>
+    {{/if}}
+  </section>
+</main>

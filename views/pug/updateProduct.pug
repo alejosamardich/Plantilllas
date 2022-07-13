@@ -1,0 +1,20 @@
+extends layout/main
+
+block content
+  main(class="container-lg p-3")
+    section(class="row justify-content-around")
+      if response
+        h2(class="col-12 text-center mb-4") Producto Agregado
+        article(class="col-8 col-md-6 col-lg-3 d-flex flex-column p-2 text-center card border-success")
+          img(class="img-fluid rounded" src=response.new.imagen, alt=response.new.nombre)
+          h3(class="text-sencondary")=response.new.nombre
+          b(class="my-1")="$ " + response.new.precio
+
+        h2(class="col-12 text-center mb-4") Producto Reemplazado
+        article(class="col-8 col-md-6 col-lg-3 d-flex flex-column p-2 text-center card border-success")
+          img(class="img-fluid rounded" src=response.previous.imagen, alt=response.previous.nombre)
+          h3(class="text-sencondary")=response.previous.nombre
+          b(class="my-1")="$ " + response.previous.precio
+
+      else 
+        h4(class="text-center") Alguno de los campos ha quedado sin rellenar
